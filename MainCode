@@ -1,0 +1,20 @@
+import javax.swing.*;
+import java.io.IOException;
+
+public class MainCode  
+{
+    public static void main (String args[] )     throws IOException {
+        
+
+    for (int t = 0; t < Vegas.length; t++)
+    {
+    Vegas[t].Race();
+    }
+
+    while((y < (L - 1)) && (z < (L - 1)))
+    {
+    DrawRace();
+    Race();
+    }
+
+}
