@@ -1,0 +1,214 @@
+public class HorseRacing
+{
+    
+
+    private String[] Horse_Racing;
+    private String[] Vegas;
+    private String Horse1, Horse2;
+    private int x, N, Move1, Move2;
+    private boolean Horse1Move, Horse2Move;
+    int y, z, L;
+
+    /**
+     * Constructor for objects of class HorseRacing
+     */
+    public HorseRacing(String n, String m, int l)
+    {
+        
+        Horse1 = n;
+        Horse2 = m;
+        x = 0;
+        y = 0;
+        z = 0;
+        L = l;
+   
+        Horse_Racing = new String[L];// sets length of Horse track 
+
+    }
+
+    public void DrawTrack()
+    {
+
+        for ( x = 0; x < Horse_Racing.length; x++)
+        {
+
+            if ( x == z)
+            {
+                Horse_Racing[x] = Horse1;
+                System.out.print(Horse_Racing[x]);
+            }
+            else
+            {
+                Horse_Racing[x] = "-";
+                System.out.print(Horse_Racing[x]);
+            }
+        }
+        System.out.println("");
+
+        for ( x = 0; x < Horse_Racing.length; x++)
+        {
+
+            if ( x == y)
+            {
+                Horse_Racing[x] = Horse2;
+                System.out.print(Horse_Racing[x]);
+            }
+            else
+            {
+                Horse_Racing[x] = "-";
+                System.out.print(Horse_Racing[x]);
+            }
+        }
+
+        try { Thread.sleep(500); } catch(InterruptedException e) {}
+
+    }
+
+
+    public void Race()
+    {
+        while((y < (L - 1)) && (z < (L - 1)))
+        {
+            //System.out.println("test");
+            Move1 = (int)(Math.random()*2);
+            if (Move1 == 1)
+            {
+                Horse1Move = true;
+            }
+            else
+            {
+                Horse1Move = false;
+            }
+            Move2 = (int)(Math.random()*2);
+            if (Move2 == 1)
+            {
+                Horse2Move = true;
+            }
+            else
+            {
+                Horse2Move = false;
+            }
+
+        
+            System.out.print("\f");
+            if (Horse1Move == true)
+            {
+                if (y <= Horse_Racing.length - 1)
+                {
+                    y = y+ 1;
+                    
+
+                    for ( x = 0; x < Horse_Racing.length; x++)
+                    {
+
+                        if ( x == y)
+                        {
+                            Horse_Racing[x] = Horse1;
+                            //Horse_Racing[x] = Horse1.substring(0,1);
+                            System.out.print(Horse_Racing[x]);
+                        }
+                        else
+                        {
+                            Horse_Racing[x] = "-";
+                            System.out.print(Horse_Racing[x]);
+                        }
+
+                    }
+                    Horse1Move = false;
+                }
+                else
+                {
+                    //System.out.print(""+Horse1+ " is the winner");
+                    Horse1Move = false;
+                }  
+
+            }
+            else
+            {
+                for ( x = 0; x < Horse_Racing.length; x++)
+                {
+
+                    if ( x == y)
+                    {
+                        Horse_Racing[x] = Horse1;
+                        System.out.print(Horse_Racing[x]);
+                    }
+                    else
+                    {
+                        Horse_Racing[x] = "-";
+                        System.out.print(Horse_Racing[x]);
+                    }
+
+                }
+
+            }
+
+            System.out.println("");
+
+            if (Horse2Move == true)
+            {
+                if (z <= Horse_Racing.length - 1)
+                {
+                    z = z+ 1;
+                    
+                    for ( x = 0; x < Horse_Racing.length; x++)
+                    {
+
+                        if ( x == z)
+                        {
+                            Horse_Racing[x] = Horse2;
+                            System.out.print(Horse_Racing[x]);                        
+                        }
+                        else
+                        {
+                            Horse_Racing[x] = "-";
+                            System.out.print(Horse_Racing[x]);
+                        }
+                    }
+
+                    Horse2Move = false;
+
+                }
+                else
+                {
+
+                    Horse2Move = false;
+                }        
+
+            }
+            else
+            {
+                for ( x = 0; x < Horse_Racing.length; x++)
+                {
+
+                    if ( x == z)
+                    {
+                        Horse_Racing[x] = Horse2;
+                        System.out.print(Horse_Racing[x]);                        
+                    }
+                    else
+                    {
+                        Horse_Racing[x] = "-";
+                        System.out.print(Horse_Racing[x]);
+                    }
+                }
+
+            }
+
+            if( z == Horse_Racing.length-1)
+            {
+                System.out.print(""+Horse2+ " is the winner");
+            }
+
+            if( y == Horse_Racing.length-1)
+            {
+                System.out.print(""+Horse1+ " is the winner");
+            }
+
+            try { Thread.sleep(100); } catch(InterruptedException e) {}
+        }
+    }
+
+    
+
+} 
